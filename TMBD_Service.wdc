@@ -1,0 +1,77 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : TMBD_Service
+ major_version : 30
+ minor_version : 0
+ type : 4
+ description : ""
+ subtype : 0
+ options : 256
+class :
+ identifier : 0x19b01757000918d0
+ internal_properties : HwAAAB4AAAD+1kTo6KJy2WQU0Y4fbFD6aQ7NWfD4KKkN7Ml67nIqLXIRxJ1vjfJ1
+ code_elements :
+  type_code : 10
+  p_codes :
+   -
+     code : |1-
+      
+      TMBD_Service est une Classe
+      
+      prive
+      	TMDBApiKey est une chaine   = "bb8eececb915e0682b9364ba43a205ff";
+      	TMDBToken est une chaîne = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiYjhlZWNlY2I5MTVlMDY4MmI5MzY0YmE0M2EyMDVmZiIsIm5iZiI6MTc2NDY5NDkwNy4wMzIsInN1YiI6IjY5MmYxYjdiYjI5MWEyZTg1MzExNDdjNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.fQJGJQVoukuM8IKFBUB7bEGPvSWnyZetm_PCDpHBgaM";
+      
+      public
+      	baseURL est une chaine = "https://api.themoviedb.org/3/search/movie?api_key="
+      fin
+     type : 131072
+  procedures :
+   -
+     name : Search
+     procedure_id : 1851009816567533986
+     type_code : 12
+     code : |1-
+      PROCEDURE Search(nomFilm)
+      
+      url	est une chaîne	= baseURL +  TMDBApiKey + "&query=" + URLEncode(nomFilm)
+      
+      req	est un httpRequest
+      req.URL = url
+      
+      reponse est un httpResponse = HTTPEnvoie(req)
+      
+      SI reponse..CodeEtat = 200 ALORS
+      	renvoyer reponse..Contenu
+      SINON
+      	renvoyer "erreur"
+      FIN
+     type : 458752
+   -
+     name : Constructeur
+     procedure_id : 1851005109279529168
+     type_code : 27
+     code : |1+
+      procédure Constructeur()
+      
+     type : 589824
+   -
+     name : Destructeur
+     procedure_id : 1851005109279594704
+     type_code : 28
+     code : |1+
+      procédure Destructeur()
+      
+     type : 655360
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : HwAAAB4AAAB7MB8NZB5rGUbyk77+IjQnJ74vm430Ar3yq0zmP05sGBBw0ur17uG6ZWry
+  original_name : Classe1
+resources :
+ string_res :
+  identifier : 0x19b0174f0006f896
+  internal_properties : HwAAAB4AAAA809Qj/IAi+r8QXyrnW7sarQeYORCUjKBkmMeTFexSj5AuvTfTUpN0Eg==
+custom_note :
+ internal_properties : HwAAAB4AAADnl3uxgA6ylw4vtqUKEOJQD3VAAOKeNUmhPNojcRFoDpHEcUyYAw==

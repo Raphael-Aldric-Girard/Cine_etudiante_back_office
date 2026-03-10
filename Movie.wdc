@@ -1,0 +1,70 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : Movie
+ major_version : 30
+ minor_version : 0
+ type : 4
+ description : ""
+ subtype : 0
+ options : 256
+class :
+ identifier : 0x19b02097008e39e5
+ internal_properties : HwAAAB4AAAD+1kTo6KJy2WQU0Y4fbFD6aQ7NWfD4KKkN7Ml67nIqLXIRxJ1vjfJ1
+ code_elements :
+  type_code : 10
+  p_codes :
+   -
+     code : |1-
+      Movie est une Classe
+      fin
+     type : 131072
+  procedures :
+   -
+     name : SearchMovie
+     procedure_id : 1851016082932568885
+     type_code : 12
+     code : |1-
+      PROCEDURE SearchMovie(TitreFilm est une chaîne)
+      
+      Service		est un TMBD_Service
+      
+      jsonresult	est une chaîne	= Service.Search(TitreFilm)
+      
+      data		est un Variant	= JSONVersVariant(jsonresult)
+      
+      resultats	est un tableau de chaînes
+      
+      POUR TOUT film DE data.results
+      	Ajoute(resultats, film.title)
+      FIN
+      
+      RENVOYER resultats
+     type : 458752
+   -
+     name : Constructeur
+     procedure_id : 1851015279770810853
+     type_code : 27
+     code : |1+
+      procédure Constructeur()
+      
+     type : 589824
+   -
+     name : Destructeur
+     procedure_id : 1851015279770876389
+     type_code : 28
+     code : |1+
+      procédure Destructeur()
+      
+     type : 655360
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : HwAAAB4AAAB7MB8NZB5rGUbyk77+IjQnJ74vm430Ar3yq0zmP05sGBBw0ur17uG6ZWry
+  original_name : Classe1
+resources :
+ string_res :
+  identifier : 0x19b02090008b1f2a
+  internal_properties : HwAAAB4AAAA809Qj/IAi+r8QXyrnW7sarQeYORCUjKBkmMeTFexSj5AuvTfTUpN0Eg==
+custom_note :
+ internal_properties : HwAAAB4AAADnl3uxgA6ylw4vtqUKEOJQD3VAAOKeNUmhPNojcRFoDpHEcUyYAw==
