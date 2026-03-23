@@ -20,11 +20,14 @@ class :
       TMBD_Service est une Classe
       
       prive
-      	TMDBApiKey est une chaine   = "bb8eececb915e0682b9364ba43a205ff";
-      	TMDBToken est une chaîne = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiYjhlZWNlY2I5MTVlMDY4MmI5MzY0YmE0M2EyMDVmZiIsIm5iZiI6MTc2NDY5NDkwNy4wMzIsInN1YiI6IjY5MmYxYjdiYjI5MWEyZTg1MzExNDdjNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.fQJGJQVoukuM8IKFBUB7bEGPvSWnyZetm_PCDpHBgaM";
+      
+      	//lecture de la clé api et du token
+      	TMDBApiKey est une chaine
+      	TMDBToken est une chaîne
       
       public
-      	baseURL est une chaine = "https://api.themoviedb.org/3/search/movie?api_key="
+      	baseURLFilm est une chaine = "https://api.themoviedb.org/3/search/movie?api_key="
+      	baseURLId est une chaine = "https://api.themoviedb.org/3/movie/"
       fin
      type : 131072
   procedures :
@@ -32,10 +35,10 @@ class :
      name : Search
      procedure_id : 1851009816567533986
      type_code : 12
-     code : |1-
+     code : |1+
       PROCEDURE Search(nomFilm)
       
-      url	est une chaîne	= baseURL +  TMDBApiKey + "&query=" + URLEncode(nomFilm)
+      url	est une chaîne	= baseURLFilm +  TMDBApiKey + "&query=" + URLEncode(nomFilm)
       
       req	est un httpRequest
       req.URL = url
@@ -49,12 +52,34 @@ class :
       FIN
      type : 458752
    -
+     name : SearchByID
+     procedure_id : 1853607283967525915
+     type_code : 12
+     code : |1+
+      procédure SearchByID(id)
+      
+      url	est une chaîne	= baseURLId + id + "?api_key=" + TMDBApiKey
+      req	est un httpRequête
+      req.URL = url
+      reponse est un httpRéponse = HTTPEnvoie(req)
+      si reponse..CodeEtat = 200 alors
+      	renvoyer reponse..Contenu
+      sinon
+      	renvoyer "erreur"
+      fin
+      
+      
+      
+     type : 458752
+   -
      name : Constructeur
      procedure_id : 1851005109279529168
      type_code : 27
-     code : |1+
+     code : |1-
       procédure Constructeur()
       
+      TMDBApiKey = lecture_cle_api()
+      TMDBToken = lecture_token()
      type : 589824
    -
      name : Destructeur

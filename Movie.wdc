@@ -24,7 +24,7 @@ class :
      name : SearchMovie
      procedure_id : 1851016082932568885
      type_code : 12
-     code : |1-
+     code : |1+
       PROCEDURE SearchMovie(TitreFilm est une chaîne)
       
       Service		est un TMBD_Service
@@ -33,13 +33,62 @@ class :
       
       data		est un Variant	= JSONVersVariant(jsonresult)
       
-      resultats	est un tableau de chaînes
+      resultats	est une structure
+      	titre est une chaîne
+      	id est un entier
+      fin
       
-      POUR TOUT film DE data.results
-      	Ajoute(resultats, film.title)
+      lstResultats est une liste de resultats
+      
+      // Parcours de data.results
+      POUR TOUT films DE data.results
+      
+      	// Créer une NOUVELLE structure à chaque tour
+      	nouveauResultat est resultats
+      
+      	// Remplir les champs
+      	nouveauResultat.titre	= films.title
+      	nouveauResultat.id		= films.id  // ou ce que tu veux comme ID
+      
+      	// Ajouter à la liste
+      	Ajoute(lstResultats, nouveauResultat)
+      
       FIN
       
-      RENVOYER resultats
+      // Retourner la liste
+      RENVOYER lstResultats
+     type : 458752
+   -
+     name : SearchMovieByID
+     procedure_id : 1853631245600629972
+     type_code : 12
+     code : |1+
+      procédure SearchMovieByID(id est une chaine)
+      
+      Service est un TMBD_Service
+      
+      //va chercher le film par son id
+      jsonresult est une chaine = Service.SearchByID(id)
+      
+      //renvoi les données sous forme de texte
+      data est un variant = JSONVersVariant(jsonresult)
+      
+      structure_	est une Structure
+      	title	est une chaîne
+      	poster_path		est une chaine
+      	release_date est une date
+      	overview est une chaine
+      fin
+      
+      retour_ est structure_
+      
+      retour_.title = data.title
+      retour_.poster_path = data.poster_path
+      retour_.release_date = data.release_date
+      retour_.overview = data.overview
+      
+      
+      renvoyer retour_
      type : 458752
    -
      name : Constructeur
