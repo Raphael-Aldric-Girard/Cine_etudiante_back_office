@@ -78,6 +78,7 @@ class :
       	poster_path		est une chaine
       	release_date est une date
       	overview est une chaine
+      	original_title est une chaine
       fin
       
       retour_ est structure_
@@ -86,6 +87,8 @@ class :
       retour_.poster_path = data.poster_path
       retour_.release_date = data.release_date
       retour_.overview = data.overview
+      retour_.original_title = data.original_title
+      
       
       
       renvoyer retour_
