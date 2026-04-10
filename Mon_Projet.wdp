@@ -67,7 +67,7 @@ project :
    -
      name : gestion_sondage
      identifier : 0x49cabd2800a02aea
-     internal_properties : HwAAAB4AAADLk9YVagEjqZg21CBgeggLdD/c+cfeUcfJkLnPyZH0neLxTpdcGSOLYuXp4/zW46YLCEiVP5lRlAbgC4A=
+     internal_properties : HwAAAB4AAABSLEhbK1hS5WHNUPDM4jQELKK0bx+fcmhVituCt9iFx3vjnJPBrW4x3Vors4UvQFVbr7lo76vmVqdV0Q==
      physical_name : .\gestion_sondage.wdw
      type : 2
    -
@@ -87,12 +87,6 @@ project :
      identifier : 0x49cbaef000caaf56
      internal_properties : HwAAAB4AAABP22N2Qgcp+gJqd5Et9f8HN20nNi2MS+XmPRkcNz2iP2+x6NmPU50CGlMusLoaX3Z6TthJCFKPgZJAzA==
      physical_name : .\FEN_Gestion_Films.wdw
-     type : 2
-   -
-     name : Fen_Gestion_Sondage
-     identifier : 0x49ce6fd9010f0df1
-     internal_properties : HwAAAB4AAABmMIyP/5xmKS2hNNRgtji4gcLbC0JRsiorqtJG9Y00meTO+VyK7sClqit3b3lbnDG3AwWcu+caCmtp5Q==
-     physical_name : .\Fen_Gestion_Sondage.wdw
      type : 2
    -
      name : FEN_Ajouter_Film_Sondage
